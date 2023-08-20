@@ -1,5 +1,6 @@
 const button = document.querySelector(".btn"),
   modal = document.querySelector(".modal"),
+  modalContent = document.querySelector(".modal-content"),
   closeButton = document.querySelector(".close");
 
 const openModal = (e) => {
@@ -7,7 +8,11 @@ const openModal = (e) => {
   modal.style.display = "block";
 };
 function closeModal() {
-  modal.style.display = "none";
+  modalContent.classList.add("slide-up");
+  setTimeout(() => {
+    modal.style.display = "none";
+    modalContent.classList.remove("slide-up");
+  }, 500);
 }
 
 button.addEventListener("click", openModal);
@@ -19,7 +24,7 @@ modal.addEventListener("mousedown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && modal.style.display === "block") {
+  if (event.key === "Escape") {
     closeModal();
   }
 });

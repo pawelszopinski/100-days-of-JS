@@ -99,12 +99,23 @@ img {
   right: 5px;
   cursor: pointer;
 }
+.slide-up {
+  animation: slide-up ease .8s;
+}
 
 @keyframes slide {
   0% {
-    transform: translateY(-30%);
+    transform: translateY(-30rem);
   }
   100% {
     transform: translateY(0);
+  }
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50rem);
   }
 }
