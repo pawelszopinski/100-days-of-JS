@@ -11,7 +11,63 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <p>Hello World!!!</p>
+    <main>
+      <section class="main-container">
+        <div class="instructions">
+          <div class="container">
+            <h2 class="line">Instructions</h2>
+            <p>
+              Follow the instructions below to get your Google Drive file link
+            </p>
+            <hr />
+            <ol type="1">
+              <li>
+                <p>Open</p>
+                <a href="https://drive.google.com/">Google Drive</a>
+              </li>
+              <li>
+                <p>Right click on a file.</p>
+              </li>
+              <li>
+                <p>Select "Get link" and click "Copy link"</p>
+              </li>
+              <li>
+                <p>
+                  Paste the link here and click “Generate Direct Link” button
+                </p>
+              </li>
+            </ol>
+          </div>
+          <!-- DOWNLOAD SECTION -->
+          <div class="download-link">
+            <div class="container">
+              <h1>Google Direct Download Link Generator</h1>
+              <input type="radio" id="paste" name="tab" />
+              <input type="radio" id="audio" name="tab" />
+              <input type="radio" id="video" name="tab" />
+              <nav>
+                <label for="paste" class="paste-link">
+                <i class="fas fa-sign-in-alt"></i>
+                Paste Link
+              </label>
+              <label for="paste" class="audio-link">
+                <i class="fas fa-headphones-alt"></i>
+                Embed Audio
+              </label>
+              <label for="paste" class="video-link">
+                <i class="fas fa-photo-video"></i>
+                Embed Video/Docs
+              </label>
+            </nav>
+            <!-- TAB CONTENT SECTION -->
+            <section>
+              
+            </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <script src="script.js"></script>
   </body>
