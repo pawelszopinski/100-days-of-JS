@@ -96,3 +96,6 @@ img {
   text-transform: uppercase;
 }
 
+.btn :is(:hover :focus) {
+  background-color: var(--color-sec);
+}
