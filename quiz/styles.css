@@ -96,6 +96,21 @@ img {
   text-transform: uppercase;
 }
 
-.btn :is(:hover :focus) {
+.btn:focus,
+.btn:hover{
   background-color: var(--color-sec);
+}
+
+#score,
+.quiz-repeat {
+  text-align:center;
+  margin: 1rem;
+}
+.quiz-repeat a {
+  text-decoration: none;
+  padding : 0.5rem 1rem;
+  background-color: var(--color-sec);
+  color: var(--white);
+  border-radius: 4px;
+  font-weight: 600;
 }

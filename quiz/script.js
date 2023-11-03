@@ -11,8 +11,8 @@ getQuestionIndex() {
 }
 
 guess(answer) {
-  if (this.questionIndex().isCorrectAnswer(answer)) {
-    this.score++
+  if (this.getQuestionIndex().isCorrectAnswer(answer)) {
+    this.score++;
   }
   this.questionIndex++;
 }
@@ -40,7 +40,7 @@ class Question {
 // Display question
 function displayQuestion() {
   if (quiz.isEnded()) {
-    showScores()
+    showScore()
   } else {
     // show question
     let questionEl = document.getElementById('question')
@@ -81,7 +81,7 @@ function showProgress() {
 
 function showScore() {
   let quizEndHTML = `<h1>Quiz completed</h1>
-  <h2 id="score">You scored: ${quiz.score} of ${quiz.question.length}</h2>
+  <h2 id="score">You scored: ${quiz.score} of ${quiz.questions.length}</h2>
   <div class='quiz-repeat'>
   <a href="index.html">Try Again?</a></div>`
 
@@ -93,12 +93,38 @@ function showScore() {
 
 let questions = [
   new Question("Hyper Text Markup Stands For", ["JQuery", "XHTML", "CSS", "HTML"], "HTML"),
-  new Question("Hyper Text Markup Stands For", ["JQuery", "XHTML", "CSS", "HTML"], "HTML"),
-  new Question("Hyper Text Markup Stands For", ["JQuery", "XHTML", "CSS", "HTML"], "HTML"),
-  new Question("Hyper Text Markup Stands For", ["JQuery", "XHTML", "CSS", "HTML"], "HTML")
+  new Question("Cascading Style Sheet stands for?", ["JQuery", "XHTML", "CSS", "HTML"], "CSS"),
+  new Question("Which framework is linked to JS language", ["React", "Laravel", "Django", "Sass"], "React"),
+  new Question("Which language is backend one?", ["PHP", "React", "React", "HTML"], "PHP"),
+  new Question("Which language is the best for AI?", ["PHP", "React", "Python", "HTML"], "Python")
 ]
 
 let quiz = new Quiz(questions)
 
 // display questions
 displayQuestion();
+
+// Add a countdown
+ let time  = 0.5
+ let quizTimeInMinutes = time * 60 *60;
+let quizTime = quizTimeInMinutes/60
+
+
+let counting =document.getElementById('count-down');
+
+function startCountDown() {
+  let quizTimer = setInterval(function() {
+    if(quizTime<=0){
+      clearInterval(quizTimer);
+      showScore()
+    }
+    else {
+      quizTime--;
+      let sec = Math.floor(quizTime % 60)
+      let min = Math.floor(quizTime/60) % 60;
+      counting.innerHTML = `TIME: ${min}: ${sec}`
+      
+    }
+  },1000)
+}
+startCountDown();
